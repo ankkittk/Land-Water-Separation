@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Land–Water Boundary Detection</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+<h1>Land–Water Boundary Detection</h1>
+
+<!-- Upload Form -->
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <button type="submit" name="action" value="upload">Upload</button>
+</form>
+
+{% if original %}
+    <h2>Original</h2>
+    <img src="{{ url_for('static', filename='uploads/' + original) }}" width="256">
+
+    <!-- Run Model Button -->
+    <form method="POST">
+        <input type="hidden" name="filename" value="{{ original }}">
+        <button type="submit" name="action" value="run">Run Model</button>
+    </form>
+{% endif %}
+
+{% if result %}
+    <h2>Boundary Result</h2>
+    <img src="{{ url_for('static', filename='results/' + result) }}" width="256">
+{% endif %}
+
+</body>
+</html>

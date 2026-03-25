@@ -18,7 +18,7 @@ def extract_boundary(original_bgr, mask):
 
     # Draw on original color image
     output = original_bgr.copy()
-    cv2.drawContours(output, contours, -1, (0, 0, 255), 2)
+    cv2.drawContours(output, contours, -1, (255, 255, 255), 2)
 
     return output
 
